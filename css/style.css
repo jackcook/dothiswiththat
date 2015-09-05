@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 html {
@@ -28,5 +29,20 @@ h2 {
 
 #actions, #languages {
   height: 33px;
-  line-height: 51px;
+  vertical-align: middle;
+  font-size: 25px;
+  font-weight: 300;
+  width: 250px;
+}
+
+#go {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
 }
