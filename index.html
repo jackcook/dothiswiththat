@@ -6,32 +6,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-    $(function() {
-    var actionTags = [
-      "read a book",
-      "watch a movie"
-    ];
-
-    var languageTags = [
-      "French",
-      "Spanish",
-      "Swedish"
-    ];
-
-    $("#actions").autocomplete({
-      source: actionTags
-    });
-
-    $("#languages").autocomplete({
-      source: languageTags
-    });
-  });
-    </script>
   </head>
   <body>
     <div id="container">
       <h2>I want to <input id="actions" /> in <input id="languages" /></h2>
+      <input id="go" type="submit"></input>
     </div>
   </body>
+  <script src="main.js" type="text/javascript"></script>
 </html>
