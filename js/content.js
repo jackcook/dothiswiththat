@@ -32,5 +32,17 @@ for (var i = 0; i < paramslist.length; i++) {
 }
 
 get_link(action, lang, function(link) {
-  document.getElementsByTagName("iframe")[0].setAttribute("src", link);
+  var type = link.split(":")[0];
+  var value = link.split(":")[1];
+  var url = "nothing.html";
+
+  if (type == "http") {
+    url = link;
+  } else if (type == "soundcloud") {
+    url = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/" + value + "&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true";
+  } else if (type == "youtube") {
+    url = "https://youtube.com/embed/" + value;
+  }
+
+  document.getElementsByTagName("iframe")[0].setAttribute("src", url);
 });

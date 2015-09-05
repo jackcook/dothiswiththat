@@ -1,5 +1,10 @@
 {
   "music": [
-    "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/1126873&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"
+    "youtube:a3vhteGYyOQ",
+    "youtube:EM3EJa9vnCo",
+    "youtube:qekNDMyQdG4"
+  ],
+  "news": [
+    "http://8sidor.se"
   ]
 }
