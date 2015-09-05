@@ -5,7 +5,9 @@ String.prototype.capitalizeFirstLetter = function() {
 var actions = {
   "read a book": "book",
   "watch a movie": "movie",
-  "read the news": "news"
+  "listen to music": "music",
+  "read the news": "news",
+  "watch a tv show": "tv"
 }
 
 var languages = {

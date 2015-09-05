@@ -36,7 +36,9 @@ get_link(action, lang, function(link) {
   var value = link.split(":")[1];
   var url = "nothing.html";
 
-  if (type == "http") {
+  if (type == "gplaytv") {
+    url = "https://play.google.com/store/tv/show?id=" + value;
+  } else if (type == "http") {
     url = link;
   } else if (type == "soundcloud") {
     url = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/" + value + "&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true";
