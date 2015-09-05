@@ -30,5 +30,33 @@ var actionsElement = document.getElementById("actions");
 var languagesElement = document.getElementById("languages");
 
 go.addEventListener("click", function() {
-  window.location = "content.html?action=" + actions[actionsElement.value.toLowerCase()] + "&lang=" + languages[languagesElement.value.toLowerCase().capitalizeFirstLetter()];
+  var action = actions[actionsElement.value.toLowerCase()];
+  var lang = languages[languagesElement.value.toLowerCase().capitalizeFirstLetter()];
+
+  file = "languages/" + lang + ".json";
+
+  request = new XMLHttpRequest();
+  request.onreadystatechange = function() {
+    if (request.readyState == 3) {
+      var response = JSON.parse(request.responseText)[action];
+      var link = response[Math.floor(Math.random() * response.length)];
+
+      var type = link.split(":")[0];
+      var value = link.split(":")[1];
+      var url = "nothing.html";
+
+      if (type == "gplaytv") {
+        url = "https://play.google.com/store/tv/show?id=" + value;
+      } else if (type == "http") {
+        url = link;
+      } else if (type == "youtube") {
+        url = "https://youtube.com/watch?v=" + value;
+      }
+
+      window.location = url;
+    }
+  }
+
+  request.open("GET", file, true);
+  request.send();
 });
