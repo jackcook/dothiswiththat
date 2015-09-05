@@ -47,7 +47,7 @@ go.addEventListener("click", function() {
 
       if (type == "gplaytv") {
         url = "https://play.google.com/store/tv/show?id=" + value;
-      } else if (type == "http") {
+      } else if (type == "http" || type == "https") {
         url = link;
       } else if (type == "youtube") {
         url = "https://youtube.com/watch?v=" + value;
