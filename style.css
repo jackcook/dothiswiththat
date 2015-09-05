@@ -112,6 +112,10 @@ h2 {
   outline: none;
 }
 
+::-webkit-input-placeholder {
+  color: #80cbc4;
+}
+
 #go {
   margin-left: auto;
   margin-right: auto;
