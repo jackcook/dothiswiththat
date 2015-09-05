@@ -7,14 +7,24 @@
 
 html {
   font-family: Arial, Helvetica, sans-serif;
-  color: #4DB6AC;
+  color: #4db6ac;
   height: 100%;
 }
 
 body {
-  background: #f7f7f7;
+  background: #eeeeee;
   height: 100%;
   width: 100%;
+}
+
+a {
+  color: #26a69a;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+a:hover {
+  color: #00796b;
 }
 
 #header-wrap {
@@ -30,8 +40,39 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: 20%;
+  top: 19%;
   width: 100%;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 42px;
+  background: #e0e0e0;
+}
+
+#left {
+  position: absolute;
+  left: 24px;
+  top: 25%;
+}
+
+#right {
+  position: absolute;
+  right: 24px;
+  top: 25%;
+}
+
+#left li {
+  display: inline-block;
+  margin-right: 24px;
+}
+
+#right li {
+  display: inline-block;
+  margin-left: 24px;
 }
 
 img {
@@ -63,7 +104,7 @@ h2 {
   width: 232px;
   background: none;
   border: 0;
-  border-bottom: 2px solid #4DB6AC;
+  border-bottom: 2px solid #4db6ac;
   text-align: center;
 }
 
@@ -81,7 +122,7 @@ h2 {
   font-weight: bold;
   font-size: 1em;
   color: white;
-  background: #00BFA5;
+  background: #00bfa5;
   padding: 10px 16px;
   border-radius: 1px;
   margin-top: 50px;
