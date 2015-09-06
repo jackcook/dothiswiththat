@@ -60,3 +60,29 @@ go.addEventListener("click", function() {
   request.open("GET", file, true);
   request.send();
 });
+
+var flag = 1;
+
+window.setInterval(function() {
+  var action = actionsElement.getAttribute("placeholder");
+  var newAction = action;
+
+  var language = languagesElement.getAttribute("placeholder");
+  var newLanguage = language;
+
+  while (action === newAction) {
+    newAction = Object.keys(actions)[Math.floor(Math.random() * Object.keys(actions).length)];
+  }
+
+  while (language === newLanguage) {
+    newLanguage = Object.keys(languages)[Math.floor(Math.random() * Object.keys(languages).length)];
+  }
+
+  if (flag == 1) {
+    actionsElement.setAttribute("placeholder", newAction);
+  } else {
+    languagesElement.setAttribute("placeholder", newLanguage);
+  }
+
+  flag += flag == 1 ? -1 : 1;
+}, 700);
