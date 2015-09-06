@@ -1,10 +1,8 @@
 {
-  "music": [
-    "youtube:a3vhteGYyOQ",
-    "youtube:EM3EJa9vnCo",
-    "youtube:qekNDMyQdG4",
-    "youtube:Y7BcYP6Nc-A"
-  ],
+  "music": {
+    "q": "musik",
+    "market": "SE"
+  },
   "news": [
     "http://8sidor.se",
     "http://svd.se",

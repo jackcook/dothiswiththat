@@ -39,21 +39,29 @@ go.addEventListener("click", function() {
   request.onreadystatechange = function() {
     if (request.readyState == 3) {
       var response = JSON.parse(request.responseText)[action];
-      var link = response[Math.floor(Math.random() * response.length)];
 
-      var type = link.split(":")[0];
-      var value = link.split(":")[1];
-      var url = "nothing.html";
+      if (action == "music") {
+        q = response["q"];
+        market = response["market"];
 
-      if (type == "gplaytv") {
-        url = "https://play.google.com/store/tv/show?id=" + value;
-      } else if (type == "http" || type == "https") {
-        url = link;
-      } else if (type == "youtube") {
-        url = "https://youtube.com/watch?v=" + value;
+        window.location = "music?q=" + q + "&market=" + market;
+      } else {
+        var link = response[Math.floor(Math.random() * response.length)];
+
+        var type = link.split(":")[0];
+        var value = link.split(":")[1];
+        var url = "nothing.html";
+
+        if (type == "gplaytv") {
+          url = "https://play.google.com/store/tv/show?id=" + value;
+        } else if (type == "http" || type == "https") {
+          url = link;
+        } else if (type == "youtube") {
+          url = "https://youtube.com/watch?v=" + value;
+        }
+
+        window.location = url;
       }
-
-      window.location = url;
     }
   }
 
