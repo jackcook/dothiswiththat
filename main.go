@@ -7,13 +7,10 @@ import (
   "time"
 )
 
-var Videos []string
+var Videos map[string][]string
 
 func main() {
-  Retrieve_videos("")
-  for _, id := range Videos {
-    fmt.Println(id)
-  }
+  Retrieve_all_videos(Google_key())
 
   ticker := time.NewTicker(1 * time.Hour)
   quit := make(chan struct{})
@@ -21,7 +18,7 @@ func main() {
     for {
       select {
       case <- ticker.C:
-        Retrieve_videos("")
+        Retrieve_all_videos(Google_key())
       case <- quit:
         ticker.Stop()
         return
@@ -35,11 +32,14 @@ func main() {
   })
 
   http.HandleFunc("/music", func(w http.ResponseWriter, r *http.Request) {
+    lang := r.URL.Query().Get("lang")
+    fmt.Println(lang)
+
     s1 := rand.NewSource(time.Now().UnixNano())
     r1 := rand.New(s1)
 
-    index := r1.Intn(len(Videos))
-    redirect := Videos[index]
+    index := r1.Intn(len(Videos[lang]))
+    redirect := Videos[lang][index]
     fmt.Fprintf(w, "<html><meta http-equiv=\"refresh\" content=\"0;URL=https://youtu.be/%s\"></html>", redirect)
   })
 

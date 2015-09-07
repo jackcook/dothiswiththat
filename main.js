@@ -44,7 +44,7 @@ go.addEventListener("click", function() {
         q = response["q"];
         market = response["market"];
 
-        window.location = "music?q=" + q + "&market=" + market;
+        window.location = "music?lang=" + lang;
       } else {
         var link = response[Math.floor(Math.random() * response.length)];
 
