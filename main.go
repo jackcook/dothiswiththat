@@ -29,6 +29,20 @@ type Track struct {
 }
 
 func main() {
+  ticker := time.NewTicker(1 * time.Second)
+  quit := make(chan struct{})
+  go func() {
+    for {
+      select {
+      case <- ticker.C:
+        Retrieve_videos("")
+      case <- quit:
+        ticker.Stop()
+        return
+      }
+    }
+  }()
+
   http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
     path := r.URL.Path[1:]
     http.ServeFile(w, r, path)

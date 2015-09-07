@@ -1,12 +1,11 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
   color: #4db6ac;
   height: 100%;
 }
@@ -123,7 +122,7 @@ h2 {
   background: none;
   border: none;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1em;
   color: white;
   background: #00bfa5;
@@ -131,6 +130,7 @@ h2 {
   border-radius: 1px;
   margin-top: 50px;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.2s;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
