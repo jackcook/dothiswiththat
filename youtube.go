@@ -8,7 +8,7 @@ import (
   "strings"
 )
 
-type response struct {
+type ytresponse struct {
 	Items []struct {
 		ID string `json:"id"`
 		Snippet struct {
@@ -38,12 +38,21 @@ func Retrieve_videos(token string) {
   }
   defer resp.Body.Close()
   body, err := ioutil.ReadAll(resp.Body)
-  fmt.Println(string(body))
 
-  var data response
+  var data ytresponse
   json.Unmarshal(body, &data)
-  nextToken := data.NextPageToken
+
   for _, video := range data.Items {
+    id := video.ID
     title := video.Snippet.Title
+    lang := Detect_language(title)
+    if lang == "sv" {
+      Videos = append(Videos, id)
+    }
+  }
+
+  nextToken := data.NextPageToken
+  if nextToken != "" {
+    Retrieve_videos(nextToken)
   }
 }
