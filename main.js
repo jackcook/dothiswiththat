@@ -3,8 +3,8 @@ String.prototype.capitalizeFirstLetter = function() {
 }
 
 var actions = {
-  "read a book": "book",
-  "watch a movie": "movie",
+  "read a book": "books",
+  "watch a movie": "movies",
   "listen to music": "music",
   "read the news": "news",
   "watch a tv show": "tv"
@@ -40,7 +40,9 @@ go.addEventListener("click", function() {
     if (request.readyState == 3) {
       var response = JSON.parse(request.responseText)[action];
 
-      if (action == "music") {
+      if (action == "movies") {
+        window.location = "movies?lang=" + lang;
+      } else if (action == "music") {
         window.location = "music?lang=" + lang;
       } else {
         var link = response[Math.floor(Math.random() * response.length)];

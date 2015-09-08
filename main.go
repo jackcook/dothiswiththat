@@ -31,9 +31,14 @@ func main() {
     http.ServeFile(w, r, path)
   })
 
+  http.HandleFunc("/movies", func(w http.ResponseWriter, r *http.Request) {
+    lang := r.URL.Query().Get("lang")
+
+    fmt.Fprintf(w, "<html><meta http-equiv=\"refresh\" content=\"0;URL=%s\"></html>", Movies_url(lang))
+  })
+
   http.HandleFunc("/music", func(w http.ResponseWriter, r *http.Request) {
     lang := r.URL.Query().Get("lang")
-    fmt.Println(lang)
 
     s1 := rand.NewSource(time.Now().UnixNano())
     r1 := rand.New(s1)

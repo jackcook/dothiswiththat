@@ -5,6 +5,7 @@ import (
   "fmt"
   "io/ioutil"
   "net/http"
+  "net/url"
   "strings"
 )
 
@@ -40,21 +41,23 @@ func Retrieve_all_videos(token string) {
 }
 
 func Retrieve_videos(region, lang, token string) {
-  s := []string{}
-  s = append(s, "https://www.googleapis.com/youtube/v3/videos")
-  s = append(s, "?part=id,contentDetails,snippet")
-  s = append(s, "&chart=mostPopular")
-  s = append(s, "&videoCategoryId=10")
-  s = append(s, "&regionCode=")
-  s = append(s, region)
-  s = append(s, "&pageToken=")
-  s = append(s, token)
-  s = append(s, "&key=")
-  s = append(s, Google_key())
+  var Url *url.URL
+  Url, err := url.Parse("https://www.googleapis.com")
+  if err != nil {
+    fmt.Println(err)
+  }
 
-  url := strings.Join(s, "")
+  Url.Path += "/youtube/v3/videos"
+  parameters := url.Values{}
+  parameters.Add("part", "id,contentDetails,snippet")
+  parameters.Add("chart", "mostPopular")
+  parameters.Add("videoCategoryId", "10")
+  parameters.Add("regionCode", region)
+  parameters.Add("pageToken", token)
+  parameters.Add("key", Google_key())
+  Url.RawQuery = parameters.Encode()
 
-  resp, err := http.Get(url)
+  resp, err := http.Get(Url.String())
   if err != nil {
     fmt.Println(err)
   }
