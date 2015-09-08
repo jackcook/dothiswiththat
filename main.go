@@ -33,7 +33,6 @@ func main() {
 
   http.HandleFunc("/movies", func(w http.ResponseWriter, r *http.Request) {
     lang := r.URL.Query().Get("lang")
-
     fmt.Fprintf(w, "<html><meta http-equiv=\"refresh\" content=\"0;URL=%s\"></html>", Movies_url(lang))
   })
 
@@ -46,6 +45,11 @@ func main() {
     index := r1.Intn(len(Videos[lang]))
     redirect := Videos[lang][index]
     fmt.Fprintf(w, "<html><meta http-equiv=\"refresh\" content=\"0;URL=https://youtu.be/%s\"></html>", redirect)
+  })
+
+  http.HandleFunc("/news", func(w http.ResponseWriter, r *http.Request) {
+    lang := r.URL.Query().Get("lang")
+    fmt.Fprintf(w, "<html><meta http-equiv=\"refresh\" content=\"0;URL=%s\"></html>", News_url(lang))
   })
 
   http.ListenAndServe(":8080", nil)

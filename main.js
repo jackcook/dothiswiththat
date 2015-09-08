@@ -44,6 +44,8 @@ go.addEventListener("click", function() {
         window.location = "movies?lang=" + lang;
       } else if (action == "music") {
         window.location = "music?lang=" + lang;
+      } else if (action == "news") {
+        window.location = "news?lang=" + lang;
       } else {
         var link = response[Math.floor(Math.random() * response.length)];
 

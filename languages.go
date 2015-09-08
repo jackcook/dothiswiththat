@@ -21,3 +21,8 @@ func Movies_url(lang string) string {
   language := Language_file(lang)
   return language.Movies
 }
+
+func News_url(lang string) string {
+  language := Language_file(lang)
+  return language.News
+}

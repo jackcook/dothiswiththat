@@ -1,10 +1,6 @@
 {
   "movies": "http://www.amazon.com/s/rh=n%3A2625373011%2Cn%3A%212644981011%2Cn%3A%212644982011%2Cn%3A%212998369011%2Cn%3A355667011%2Cn%3A355835011%2Cn%3A355857011",
-  "news": [
-    "http://8sidor.se",
-    "http://svd.se",
-    "http://svt.se/nyheter"
-  ],
+  "news": "http://www.dn.se",
   "tv": [
     "gplaytv:pad4beFxApI",
     "gplaytv:mHCAqMYlWLA",
