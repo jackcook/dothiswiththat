@@ -7,6 +7,7 @@ import (
 
 type Language struct {
   Movies string
+  News string
 }
 
 func Language_file(lang string) Language {
