@@ -26,7 +26,7 @@ type ytresponse struct {
 }
 
 func Retrieve_all_videos(token string) {
-  regions := []string{"en-US", "es-ES", "fr-FR", "sv-SE"}
+  regions := []string{"zh-CN", "en-US", "fr-FR", "it-IT", "ja-JP", "ko-KR", "es-ES", "sv-SE"}
   Videos = map[string][]string{}
 
   for _, r := range regions {
@@ -35,9 +35,11 @@ func Retrieve_all_videos(token string) {
 
     Videos[language] = []string{}
     Retrieve_videos(region, language, "")
+
+    fmt.Println("Finished retrieving '" + language + "' videos")
   }
 
-  fmt.Println("Done retrieving videos")
+  fmt.Println("Finished retrieving all videos")
 }
 
 func Retrieve_videos(region, lang, token string) {

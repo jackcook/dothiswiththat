@@ -11,9 +11,13 @@ var actions = {
 }
 
 var languages = {
+  "Chinese": "zh",
   "English": "en",
-  "Spanish": "es",
   "French": "fr",
+  "Italian": "it",
+  "Japanese": "ja",
+  "Korean": "ko",
+  "Spanish": "es",
   "Swedish": "sv"
 }
 
